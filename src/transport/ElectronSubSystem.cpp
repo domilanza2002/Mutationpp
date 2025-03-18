@@ -26,6 +26,7 @@
  */
 
 #include "ElectronSubSystem.h"
+#include <iostream>
 
 namespace Mutation {
     namespace Transport {
@@ -98,14 +99,28 @@ double ElectronSubSystem::electronThermalConductivity(int order)
     const double xe = m_thermo.X()[0];
     const double Te = m_thermo.Te();
     const double fac = 75.*KB/64.*std::sqrt(TWOPI*KB*Te/m_collisions.mass()(0));
+    // Infinity electron thermal conductivity fix
+    double den, k_2, k_3;
 
     // 2nd order solution
-    if (order == 2)
-        return fac * xe / m_collisions.Lee<2>()(1,1);
+    if (order == 2){
+        // Infinity electron thermal conductivity fix:
+        k_2 = fac * xe / m_collisions.Lee<2>()(1,1);
+        return k_2;
+    }
 
     // 3rd order solution
     Eigen::Matrix3d L = m_collisions.Lee<3>();
-    return fac * xe * L(2,2) / (L(1,1)*L(2,2) - L(1,2)*L(1,2));
+    // return fac * xe * L(2,2) / (L(1,1)*L(2,2) - L(1,2)*L(1,2));
+    // Infinity electron thermal conductivity fix:
+    den = L(1,1)*L(2,2) - L(1,2)*L(1,2);
+    if (den != 0){
+        k_3 = fac * xe * L(2,2) / den;
+    }else{
+        k_2 = fac * xe / m_collisions.Lee<2>()(1,1);
+        k_3 = k_2;
+    }
+    return k_3;
 }
 
 //==============================================================================

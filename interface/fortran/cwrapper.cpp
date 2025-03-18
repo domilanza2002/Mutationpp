@@ -281,6 +281,13 @@ double NAME_MANGLE(mixture_frozen_cp_mass)()
 }
 
 //==============================================================================
+double NAME_MANGLE(mixture_equilibrium_cp_mass)()
+{
+    return p_mix->mixtureEquilibriumCpMass();
+}
+
+
+//==============================================================================
 double NAME_MANGLE(mixture_frozen_cv_mass)()
 {
     return p_mix->mixtureFrozenCvMass();
@@ -296,6 +303,11 @@ double NAME_MANGLE(mixture_frozen_gamma)()
 double NAME_MANGLE(mixture_frozen_sound_speed)()
 {
     return p_mix->frozenSoundSpeed();
+}
+
+double NAME_MANGLE(mixture_equilibrium_sound_speed)()
+{
+    return p_mix->equilibriumSoundSpeed();
 }
 
 //==============================================================================
@@ -324,10 +336,21 @@ double NAME_MANGLE(mixture_h_mass)()
     return p_mix->mixtureHMass();
 }
 
+double NAME_MANGLE(mixture_h_minus_h0_mass)()
+{
+    return p_mix->mixtureHMinusH0Mass();
+}
+
 //==============================================================================
 double NAME_MANGLE(mixture_e_mass)()
 {
     return p_mix->mixtureEnergyMass();
+}
+
+//==============================================================================
+double NAME_MANGLE(mixture_s_mass)()
+{
+    return p_mix->mixtureSMass();
 }
 
 //==============================================================================
@@ -418,6 +441,11 @@ double NAME_MANGLE(internal_thermal_conductivity)(const double* const T)
 double NAME_MANGLE(reactive_thermal_conductivity)()
 {
     return p_mix->reactiveThermalConductivity();
+}
+
+double NAME_MANGLE(soret_thermal_conductivity)()
+{
+    return p_mix->soretThermalConductivity();
 }
 
 //==============================================================================

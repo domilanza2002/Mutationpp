@@ -265,6 +265,11 @@ void NAME_MANGLE(species_cv_mass)(double* const cv);
 double NAME_MANGLE(mixture_frozen_cp_mass)();
 
 /**
+ * Returns the mixture specific heat at constant pressure in J/kg-K.
+ */
+double NAME_MANGLE(mixture_equilibrium_cp_mass)();
+
+/**
  * Returns the mixture specific heat at constant volume in J/kg-K.
  */
 double NAME_MANGLE(mixture_frozen_cv_mass)();
@@ -279,6 +284,12 @@ double NAME_MANGLE(mixture_frozen_gamma)();
  * Returns the mixture frozen sound speed in m/s.
  */
 double NAME_MANGLE(mixture_frozen_sound_speed)();
+
+
+/**
+ * Returns the mixture frozen sound speed in m/s.
+ */
+double NAME_MANGLE(mixture_equilibrium_sound_speed)();
 
 /**
  * Returns the species energies (total + internal if multi temperature) in J/kg.
@@ -306,12 +317,24 @@ void NAME_MANGLE(species_s_mass)(double *const s);
  * species mass fractions.
  */
 double NAME_MANGLE(mixture_h_mass)();
+/**
+ * Returns the mixture enthalpy in J/kg given the mixture temperature and
+ * species mass fractions.
+ */
+double NAME_MANGLE(mixture_h_minus_h0_mass)();
+
 
 /**
  * Return the mixture total energy in J/kg given temperature, density, and mass
  * fractions.
  */
 double NAME_MANGLE(mixture_e_mass)();
+
+/**
+ * Return the mixture entropy in J/(kgK) given temperature, density, and mass
+ * fractions.
+ */
+double NAME_MANGLE(mixture_s_mass)();
 
 /**
  * Fills the vector wdot with the net species production rates due to the
@@ -353,7 +376,7 @@ double NAME_MANGLE(viscosity)();
 /**
  * Returns the mixture thermal conductivity for a frozen mixture.
  */
-void NAME_MANGLE(frozen_thermal_conductivity)(double* const lambda);
+double NAME_MANGLE(frozen_thermal_conductivity)();
 
 /**
  * Returns the heavy thermal diffusion ratios for each species.
@@ -411,6 +434,11 @@ double NAME_MANGLE(internal_thermal_conductivity)(const double* const T);
  */
 double NAME_MANGLE(reactive_thermal_conductivity)();
 
+/**
+ * Returns the reactive thermal conductivity which accounts for reactions
+ * for mixtures in thermochemical equilibrium.
+ */
+double NAME_MANGLE(soret_thermal_conductivity)();
 
 /**
  * Returns mixture averaged species diffusion coefficients which are defined
