@@ -105,8 +105,10 @@ public:
 
             mv_imp_flux_per_stoich_coef[i_g] =
                 mv_imp_flux_out[i_g]/m_stoich_coef;
+            // mv_imp_flux_out[i_g] =
+            //     mv_imp_flux_per_stoich_coef[i_g]*mv_gamma[i_g];
             mv_imp_flux_out[i_g] =
-                mv_imp_flux_per_stoich_coef[i_g]*mv_gamma[i_g];
+                mv_imp_flux_per_stoich_coef[i_g]*(2*mv_gamma[i_g]/(2-mv_gamma[i_g]));
 
             m_idx_react += m_stoich_coef;
         }
