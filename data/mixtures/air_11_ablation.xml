@@ -1,0 +1,13 @@
+<!-- Air mixture with 11 species, with ablation products -->
+<mixture mechanism="air_11_ablation">
+
+    <species>
+        CO2 CO N2 O2 NO C2 C3 CN C N O
+    </species>
+
+    <element_compositions default="air">
+        <composition name="air"> N:0.78, O: 0.21, C:0.01 </composition>
+    </element_compositions>
+
+</mixture>
+

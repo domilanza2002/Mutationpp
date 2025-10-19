@@ -1,0 +1,14 @@
+COPYING
+COPYING.LESSER
+README.md
+pyproject.toml
+setup.py
+_skbuild/linux-x86_64-3.10/cmake-install/interface/python/mutationpp/__init__.py
+_skbuild/linux-x86_64-3.10/cmake-install/interface/python/mutationpp/_mutationpp.cpython-310-x86_64-linux-gnu.so
+interface/python/mutationpp/__init__.py
+interface/python/mutationpp.egg-info/PKG-INFO
+interface/python/mutationpp.egg-info/SOURCES.txt
+interface/python/mutationpp.egg-info/dependency_links.txt
+interface/python/mutationpp.egg-info/not-zip-safe
+interface/python/mutationpp.egg-info/requires.txt
+interface/python/mutationpp.egg-info/top_level.txt

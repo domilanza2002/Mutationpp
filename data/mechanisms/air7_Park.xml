@@ -1,0 +1,48 @@
+<!--
+Park air7 reaction mechanism
+taken from Park 2001: Chemical-Kinetic Parameters of Hyperbolic Earth Entry
+air7: N O NO N2 O2 NO+ e-.
+P.S. e- cant be in third body reaction(M)
+-->
+<mechanism name="air_7_Park">
+
+    <arrhenius_units A="mol,cm,s,K" E="kcal,mol,K" />
+
+    <!-- Park, 2001 -->
+    <reaction formula="N2+M=2N+M">
+        <arrhenius A="3.0E+22" n="-1.6" T="113200.0" />
+        <M>N2:0.2333, NO:0.2333, O2:0.2333, NO+:0.2333</M>
+    </reaction>
+
+    <!-- Park, 2001 -->
+    <reaction formula="O2+M=2O+M">
+        <arrhenius A="1.0E+22" n="-1.5" T="59360.0" />
+        <M>N2:0.2, NO:0.2, O2:0.2, NO+:0.2</M>
+    </reaction>
+
+    <!-- Park, 1993 -->
+    <reaction formula="NO+M=N+O+M">
+        <arrhenius A="5.0E15" n="0.0" T="75500.0" />
+        <M>NO:22.0, N:22.0, O:22.0</M> <!--M=1 for NO+ -->
+    </reaction>
+
+    <!-- Park, 2001 -->
+    <reaction formula="N2+O=NO+N">
+        <arrhenius A="5.7E+12" n="0.42" T="42938.0" />
+    </reaction>
+
+    <!-- Park, 2001 -->
+    <reaction formula="NO+O=O2+N">
+        <arrhenius A="8.4E+12" n="0.0" T="19400.0" />
+    </reaction>
+    <!-- Park, 2001, Ionization-->
+    <reaction formula="N2+e-=2N+e-">
+        <arrhenius A="3.0E+24" n="-1.6" T="113200.0" />
+    </reaction>
+    <reaction formula="O+N=NO++e-">
+        <arrhenius A="5.3E+12" n="0.0" T="31900.0" />
+    </reaction>
+
+</mechanism>
+
+
