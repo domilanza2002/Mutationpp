@@ -804,7 +804,6 @@ private:
     template <typename OP>
     void hF(double* const h, const OP& op) {
         LOOP(op(h[i], mp_hform[i] - mp_part_sst[i]))
-        //LOOP(op(h[i], mp_hform[i]))
     }
     
     /**

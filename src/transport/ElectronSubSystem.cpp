@@ -114,7 +114,8 @@ double ElectronSubSystem::electronThermalConductivity(int order)
     // return fac * xe * L(2,2) / (L(1,1)*L(2,2) - L(1,2)*L(1,2));
     // Infinity electron thermal conductivity fix:
     den = L(1,1)*L(2,2) - L(1,2)*L(1,2);
-    if (den != 0){
+    const double tol_den_check = 1.0e-16;
+    if (std::abs(den) > tol_den_check){
         k_3 = fac * xe * L(2,2) / den;
     }else{
         k_2 = fac * xe / m_collisions.Lee<2>()(1,1);
